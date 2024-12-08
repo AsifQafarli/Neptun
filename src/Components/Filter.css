@@ -1,0 +1,131 @@
+.filter-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1001;
+    background: rgba(0, 0, 0, .7);
+    display: flex;
+    justify-content: start;
+    width: 0;
+    overflow: hidden;
+    transition: all ease .2s;
+}
+
+.filter-search {
+    transition: all ease .4s;
+    position: relative;
+    padding: 20px;
+    background-color: #353535;
+    border: none;
+    max-width: 550px;
+    width: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-title {
+    color: #debc71;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.search-close-button {
+    color: #debc71;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, auto);
+    gap: 15px;
+}
+
+.filter-label {
+    color: #debc71;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/*  */
+.filter-input:focus {
+    outline: 2px solid #debc71;
+}
+/*  */
+.form-check {
+    color: #debc71;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-checkbox {
+    width: 18px;
+    height: 18px;
+}
+
+.price-filter {
+    margin-top: 20px;
+}
+
+.price-input {
+    width: calc(50% - 5px);
+    padding: 10px;
+    color: #debc71;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.clear-button {
+    background-color: #debc71;
+    color: #fff;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.clear-button:hover {
+    background-color: #cf9822;
+    color: #fff;
+}
+
+.apply-button {
+    background-color: rgb(177, 104, 70);
+    color: #fff;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.apply-button:hover {
+    background-color: rgb(172, 74, 28);
+}

@@ -1,0 +1,122 @@
+/* Desktop View - Normal Styles */
+.text-center > h2 {
+    color: #debc71;
+}
+
+.home-menu-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 100px;
+    color: #000000;
+}
+
+.home-menu-list-item {
+    padding: 20px;
+    text-align: center;
+}
+
+.home-menu-list-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.home-menu-title {
+    display: grid;
+    gap: 16px;
+}
+
+.product-name {
+    margin: 0px 0px 15px;
+    font-size: 20px;
+    color: #595959;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #595959;
+}
+
+.home-menu-title button {
+    border-radius: 30px;
+    background-color: #fff;
+    color: rgb(80, 151, 106);
+    cursor: pointer;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: 1px solid rgb(80, 151, 106);
+}
+
+.home-menu-title button:hover {
+    color: #fff;
+    background-color: rgb(80, 151, 106);
+}
+
+/* Mobile View - Responsive Styles */
+@media (max-width: 768px) {
+    /* Text center adjustments */
+    .text-center {
+        margin-top: 50px;
+    }
+
+    /* Home Menu List */
+    .home-menu-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .home-menu-list-item {
+        padding: 15px;
+    }
+
+    .product-name {
+        font-size: 18px;
+    }
+
+    .product-price {
+        font-size: 14px;
+    }
+
+    .home-menu-title button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Text center adjustments for very small screens */
+    .text-center {
+        margin-top: 30px;
+    }
+
+    /* Home Menu List */
+    .home-menu-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .home-menu-list-item {
+        padding: 10px;
+    }
+
+    .product-name {
+        font-size: 16px;
+    }
+
+    .product-price {
+        font-size: 12px;
+    }
+
+    .home-menu-title button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}

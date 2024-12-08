@@ -1,0 +1,86 @@
+.header {
+    width: 100%;
+    height: 6vw;
+    font-size: 20px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    color: #fff;
+    transition: all .2s;
+}
+
+.first-name {
+    left: 20px;
+    color: #debc71;
+    font-size: 22px;
+    font-weight: 900;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu li {
+    color: #debc71;
+    padding: 1rem;
+    font-size: 16px;
+}
+
+.navbar-right .active {
+    padding-bottom: 2px;
+    border-bottom: 1px solid #debc71;
+}
+
+.navbar-icons {
+    font-size: 22px;
+    color: #debc71;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-log>button {
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    color: #debc71;
+    background-color: red;
+    border-radius: 50px;
+    width:55px;
+    height: 33px;
+}
+
+.hamburgers {
+    font-size: 20px;
+    color: #fff;
+    display: none;
+    gap: 5px;
+}
+
+.navbar-icons-desktop{
+    color: #debc71;
+    position: relative;
+}
+
+.navbar-icons-desktop .dot{
+    position: absolute;
+    min-width: 8px;
+    min-height: 8px;
+    background-color: red;
+    border-radius: 5px;
+    top: -3px;
+    right: -3px;
+}

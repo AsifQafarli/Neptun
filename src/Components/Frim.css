@@ -1,0 +1,22 @@
+.frims {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.frims p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #595959;
+}
+
+.frim-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.frim-logo-item img {
+    max-width: 170px;
+    height: auto;
+}
