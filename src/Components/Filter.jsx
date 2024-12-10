@@ -1,13 +1,18 @@
-import React, { useRef, useState } from 'react';
-import './Filter.css';
+import React, { useRef, useState } from "react";
+import "./Filter.css";
 
-const Filter = ({ setIsOpenFilter, isOpenFilter, product_list, setFilteredProducts }) => {
-
+const Filter = ({
+  setIsOpenFilter,
+  isOpenFilter,
+  product_list,
+  setFilteredProducts,
+  setFilter,
+}) => {
   const filterModal = useRef(null);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [priceRange, setPriceRange] = useState({ min: 22, max: 250 });
+  const [priceRange, setPriceRange] = useState({ min: 0, max: Infinity });
 
   function closeFilterModal(e) {
     if (e.target === filterModal.current) {
@@ -15,47 +20,48 @@ const Filter = ({ setIsOpenFilter, isOpenFilter, product_list, setFilteredProduc
     }
   }
 
-
   function handleCategoryChange(event) {
     const { id, checked } = event.target;
-    setSelectedCategories(prevCategories => {
+    setSelectedCategories((prevCategories) => {
       if (checked) {
         return [...prevCategories, id];
       } else {
-        return prevCategories.filter(category => category !== id);
+        return prevCategories.filter((category) => category !== id);
       }
     });
   }
 
-  function handlePriceChange(event) {
-    const { id, value } = event.target.value;
-    setPriceRange(prevRange => ({
-      ...prevRange,
-      [id]: value
-    }));
-  }
-
   function applyFilters() {
-    const filteredProducts = product_list.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
-      const matchesPrice = product.price >= priceRange.min && product.price <= priceRange.max;
-      return matchesSearch && matchesCategory && matchesPrice;
+    setFilter({
+      categories: selectedCategories,
+      search: searchQuery,
+      priceRange: priceRange,
     });
-
-    setFilteredProducts(filteredProducts);
-
-    console.log(filteredProducts);
   }
 
   return (
-    <div className='filter-modal' style={{ width: isOpenFilter ? "100%" : 0 }} ref={filterModal} onClick={closeFilterModal}>
-      <div className='filter-search' style={{ width: isOpenFilter ? "45%" : 0 }}>
+    <div
+      className="filter-modal"
+      style={{ width: isOpenFilter ? "100%" : 0 }}
+      ref={filterModal}
+      onClick={closeFilterModal}
+    >
+      <div
+        className="filter-search"
+        style={{ width: isOpenFilter ? "45%" : 0 }}
+      >
         <h5 className="filter-title">Search and Filter</h5>
-        <button className='search-close-button' onClick={() => setIsOpenFilter(false)}>X</button>
+        <button
+          className="search-close-button"
+          onClick={() => setIsOpenFilter(false)}
+        >
+          X
+        </button>
 
         <div className="filter-group">
-          <label htmlFor="search" className="filter-label">Search:</label>
+          <label htmlFor="search" className="filter-label">
+            Search:
+          </label>
           <input
             type="text"
             id="search"
@@ -69,7 +75,22 @@ const Filter = ({ setIsOpenFilter, isOpenFilter, product_list, setFilteredProduc
         <label className="filter-label">Collections:</label>
         <div className="filter-group">
           {/* Checkbox'lar */}
-          {['short jacket', 'sweatshirt', 't-shirt', 'suit', 'coat', 'jacket', 'field jacket', 'shirt', 'turtleneck', 'cardigan', 'loafers', 'sneakers', 'jeans', 'chinos'].map(category => (
+          {[
+            "short jacket",
+            "sweatshirt",
+            "t-shirt",
+            "suit",
+            "coat",
+            "jacket",
+            "field jacket",
+            "shirt",
+            "turtleneck",
+            "cardigan",
+            "loafers",
+            "sneakers",
+            "jeans",
+            "chinos",
+          ].map((category) => (
             <div className="form-check" key={category}>
               <input
                 type="checkbox"
@@ -83,36 +104,55 @@ const Filter = ({ setIsOpenFilter, isOpenFilter, product_list, setFilteredProduc
           ))}
         </div>
 
-        <div className='price-filter'>
-          <label htmlFor="min-price" className="filter-label">Price ($):</label>
+        <div className="price-filter">
+          <label htmlFor="min-price" className="filter-label">
+            Price ($):
+          </label>
           <input
             type="number"
             id="min-price"
             className="price-input"
             placeholder=""
-            defaultValue={priceRange.min}
-            onChange={handlePriceChange}
+            value={priceRange.min}
+            onChange={(e) =>
+              setPriceRange((prev) => ({
+                ...prev,
+                min: Number(e.target.value),
+              }))
+            }
           />
           <input
             type="number"
             id="max-price"
             className="price-input"
-            placeholder="250"
-            defaultValue={priceRange.max}
-            onChange={handlePriceChange}
+            placeholder=""
+            value={priceRange.max}
+            onChange={(e) =>
+              setPriceRange((prev) => ({
+                ...prev,
+                max: e.target.value ? Number(e.target.value) : Infinity,
+              }))
+            }
           />
           <div className="filter-buttons">
-            <button className="clear-button" onClick={() => {
-              setSearchQuery("");
-              setSelectedCategories([]);
-              setPriceRange({ min: 22, max: 250 });
-            }}>Clear Filter</button>
-            <button className="apply-button" onClick={applyFilters}>Apply</button>
+            <button
+              className="clear-button"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategories([]);
+                setPriceRange({ min: 22, max: 250 });
+              }}
+            >
+              Clear Filter
+            </button>
+            <button className="apply-button" onClick={applyFilters}>
+              Apply
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Filter;

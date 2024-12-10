@@ -299,7 +299,7 @@ export const product_list = [
         _id: "27",
         name: "WOOL CASUAL TROUSERS",
         price: 950.00,
-        category: "Chinos",
+        category: "chinos",
         product_img1: product_53,
         product_img2: product_54,
     },
